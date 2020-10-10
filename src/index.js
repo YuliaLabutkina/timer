@@ -1,6 +1,7 @@
 import './styles.css';
 import * as ref from './js/ref';
 
+
 // Создайте таймер
 // Таймер можно выставить на 10с/20с/30с. ( У вас должно быть 3 кнопки с данными значениями)
 // У таймера должна быть возможность поставить на паузу, продолжить, сбросить, старт.
@@ -45,7 +46,6 @@ const startTimer = (timeNaw) => {
     const startTimer = setInterval(() => {
 
         if(ref.buttonStartAndPause.getAttribute('data-action') === 'start') {
-            stopTimer = 0;
             clearInterval(startTimer)
             return;
         };
@@ -56,12 +56,7 @@ const startTimer = (timeNaw) => {
             return;
         };
 
-        if(stopTimer > 0) {
-            time = Math.round(setTime - stopTimer - Date.now());
-        } else {
-            time = Math.round(setTime - Date.now());
-        }
-
+        time = Math.round(setTime - stopTimer - Date.now());
         const secs = Math.round((time / 1000));
 
         if(secs >= 0) {
