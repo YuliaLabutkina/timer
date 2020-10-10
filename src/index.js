@@ -56,12 +56,12 @@ const startTimer = (timeNaw) => {
             return;
         };
 
-        time = Math.round(setTime - stopTimer - Date.now());
+        time = setTime - stopTimer - Date.now();
         const secs = Math.round((time / 1000));
 
         if(secs >= 0) {
             ref.timer.textContent = ` 00 : ${secs < 10 ? `0${secs}` : secs}`;
-            time = (time / 1000 - 1) * 1000;
+            time -= 1000;
             return;
         }
 
